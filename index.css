@@ -2,3 +2,78 @@ body {
   scroll-behavior: smooth;
 }
 
+.navbar {
+  background-color: #16273a !important;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 30px;
+  color: white;
+  font-weight: normal;
+}
+
+.navbar-brand small {
+  font-size: 15px;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  margin: 0 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #4a90e2;
+}
+
+.navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link::before {
+  content: "•";
+  color: white;
+  font-weight: bold;
+  margin-right: 15px;
+  display: inline-block;
+  line-height: 2;
+  vertical-align: middle;
+}
+
+.navbar-nav .nav-item:last-child .nav-link::before {
+  content: "•";
+}
+
+
+
+/* Call-to-Action Button */
+.btn-primary {
+  background-color: #005AFF;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures space between text and toggle */
+}
+
+.btn-primary span {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Toggle button styling */
+.toggle-button {
+  margin-left: auto; /* Pushes the toggle to the right */
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: #102a43;
+    padding: 10px;
+  }
+}
