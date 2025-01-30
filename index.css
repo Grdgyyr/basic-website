@@ -134,7 +134,7 @@ p {
   margin-bottom: 20px;
 }
 .follow {
-  position: absolute;
+  position: sticky;
   left: 150px; 
   top: 53%;   
   transform: translateY(-50%);  
