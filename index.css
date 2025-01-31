@@ -166,15 +166,15 @@ body {
   object-fit: cover;
 }
 
-h5 {
+.container h5 {
   font-size: 20px;
 }
 
-h1 {
+.container h1 {
   font-size: 48px; 
 }
 
-p {
+.container p {
   font-size: 18px; 
 }
 
@@ -207,15 +207,15 @@ p {
     display: none;
   }
 
-  h5 {
+  .container h5 {
     font-size: 18px;
   }
 
-  h1 {
+  .container h1 {
     font-size: 36px;
   }
 
-  p {
+  .container p {
     font-size: 16px;
   }
 }
@@ -326,3 +326,129 @@ p {
   }
 }
 
+#section2 {
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0D1B2A;
+  background-size: cover;
+  padding: 50px 0;
+}
+
+.background img {
+  position: sticky;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  pointer-events: none;
+  margin-top: -100px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+.square {
+  background-color: #15263B;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 220px;
+  height: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.square:hover {
+  background: linear-gradient(to right, #0046C7, #005AFF);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+} 
+
+.square p {
+  margin: 20px 0 0;
+  font-size: 20px;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .square {
+      width: 100%;
+      margin: 10px 0;
+  }
+}
+
+
+#section5 {
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0D1B2A;
+  background-size: cover;
+  padding: 50px 0;
+}
+
+.button-small {
+  background-color: #15263B;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.button-small:hover {
+  background: linear-gradient(to right, #0046C7, #005AFF);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.history-mission {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.history-mission div {
+  flex: 1;
+  padding: 10px;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress {
+  background-color: #76c7c0;
+  width: 75%;
+  height: 20px;
+  border-radius: 8px;
+}
+
+.percentage {
+  font-size: 16px;
+  line-height: 1.6;
+}
