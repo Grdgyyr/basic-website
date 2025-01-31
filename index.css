@@ -166,15 +166,15 @@ body {
   object-fit: cover;
 }
 
-h5 {
+.container h5 {
   font-size: 20px;
 }
 
-h1 {
+.container h1 {
   font-size: 48px; 
 }
 
-p {
+.container p {
   font-size: 18px; 
 }
 
@@ -207,15 +207,15 @@ p {
     display: none;
   }
 
-  h5 {
+  .container h5 {
     font-size: 18px;
   }
 
-  h1 {
+  .container h1 {
     font-size: 36px;
   }
 
-  p {
+  .container p {
     font-size: 16px;
   }
 }
