@@ -8,10 +8,9 @@
     <meta name="description" content="" />
     <meta name="author" content="Knode OJTs" />
     <meta name="generator" content="Hugo 0.122.0" />
-    <title>Iter IT Solutions</title>
+    <title> Basic Website</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
-
 
     <link
       rel="canonical"
@@ -24,6 +23,19 @@
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: auto;
+      }
+      .bg-body-tertiary {
+        background-color: #f8f9fa;
+      }
+      .d-flex {
+        align-items: center;
+        justify-content: center;
+      }
       .col-12 {
         text-align: center;
         padding: 20px;
@@ -35,225 +47,132 @@
     <link href="index.css" rel="stylesheet" />
   </head>
   <body class="bg-body-tertiary">
-    <!-- Navigation Header -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand" href="#">
-          <strong style="font-family: 'Courier New', Courier">Iter</strong>
-          <small class="d-block text-muted">IT Solutions</small>
-        </a>
-
-        <!-- Navigation Links -->
-        <nav
-          class="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#section1">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section2">Elements</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section3">Portfolio</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Page</a></li>
-          </ul>
-        </nav>
-
-        <!-- Call-to-Action Button and Toggle Button -->
-        <div class="d-flex align-items-center">
-          <a href="#" class="btn btn-primary">
-            <span>→ |</span> Get To Start
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- Page Content -->
     <div class="d-flex flex-column">
       <div id="section1" class="col-12 w-100">1</div>
       <div id="section2" class="col-12 w-100">2</div>
-      <div
-        id="section3"
-        class="col-12 w-100"
-        style="background-color: #16273a; padding: 50px 0"
-      >
-        <div
-          style="display: flex; justify-content: center; align-items: center"
-        >
-          <!-- Left Circle Section -->
-          <div
-            style="
-              flex: 1;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            "
-          >
-            <div
-              style="
-                position: relative;
-                width: 450px;
-                height: 450px;
-                background: radial-gradient(circle, #007bff, #0056d4);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                text-align: center;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-              "
-            >
-              <!-- Main Circle Content -->
-              <p style="margin: 0; font-size: 18px; line-height: 1.4">
-                <strong style="font-size: 42px">American IT Solutions</strong
-                ><br />
-                <span style="font-size: 16px; font-style: italic"
-                  >Association webit.</span
-                >
-              </p>
-
-              <!-- Smaller Circles -->
-              <div
-                style="
-                  position: absolute;
-                  bottom: -65px;
-                  left: -60px;
-                  width: 180px;
-                  height: 180px;
-                  background-color: #d8d8d8;
-                  border-radius: 50%;
-                  border: 6px solid #ffffff;
-                  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                  transform: scale(1);
-                "
-              ></div>
-
-              <div
-                style="
-                  position: absolute;
-                  bottom: 25px;
-                  right: -50px;
-                  width: 180px;
-                  height: 180px;
-                  background-color: #d8d8d8;
-                  border-radius: 50%;
-                  border: 6px solid #ffffff;
-                  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                "
-              ></div>
-            </div>
+      <div id="section3" class="col-12 w-100">
+        <div class="circle-container">
+          <div class="main-circle">
+            <p>
+              <strong>American IT Solutions</strong><br />
+              <span>Association webit.</span>
+            </p>
+            <div class="small-circle left"></div>
+            <div class="small-circle right"></div>
           </div>
-
-          <!-- Right Content Section -->
-          <div style="flex: 2; color: white; padding: 0 30px">
-            <h2 style="font-size: 36px; font-weight: bold; margin-bottom: 20px">
-              We are here to IT Solution with<br />
-              20 years of experience
-            </h2>
-            <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px">
-              We have to a tendency to believe thes that smart looking website
-              is the first impression.
-              <br /><br />
-              Web design is not just a profession, but a passion for our
+        </div>
+        <div class="right-content">
+          <h2>We are here to IT Solution with 20 years of experience</h2>
+          <p>
+            We have to a tendency to believe that smart looking website is the first impression.
+            Web design is not just a profession, but a passion for our company. 
+          </p>
+          <p>
+             Web design is not just a profession, but a passion for our
               company. We believe that a website's appearance creates the first
               impression on visitors. A smart, well-designed website serves as
               the starting point for success.
-            </p>
-            <p
-              style="
-                background-color: #005aff;
-                padding: 15px 10px;
-                border-radius: 5px;
-                display: inline-flex;
-                align-items: center;
-                color: white;
-              "
-            >
-              <span
-                style="
-                  width: 40px;
-                  height: 40px;
-                  background: white;
-                  border-radius: 50%;
-                  display: inline-flex;
-                  justify-content: center;
-                  align-items: center;
-                  margin-right: 10px;
-                "
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M22 16.92V19.92C22 20.4704 21.7893 20.9987 21.4142 21.3738C21.0391 21.7489 20.5109 21.9596 19.96 21.96C18.2 22.09 16.48 21.89 14.87 21.37C11.6954 20.3338 8.87477 18.4012 6.72 15.83C4.14877 13.6752 2.21613 10.8546 1.18 7.68001C0.66 6.06001 0.46 4.34001 0.59 2.58001C0.590376 2.03008 0.799914 1.50294 1.17346 1.12724C1.547 0.751544 2.07314 0.538925 2.62 0.536675L5.62 0.516675C6.7035 0.506503 7.63729 1.29229 7.84 2.36001C8.01608 3.3213 8.27286 4.26558 8.61 5.18001C8.87777 5.90009 8.76816 6.7065 8.32 7.34001L7.12 9.00001C8.07287 10.8577 9.38316 12.4936 11 13.78L12.66 12.58C13.2935 12.1318 14.0999 12.0222 14.82 12.29C15.7344 12.6271 16.6787 12.8839 17.64 13.06C18.7334 13.2669 19.5268 14.2348 19.48 15.35L22 16.92Z"
-                    fill="#005AFF"
-                    stroke="#005AFF"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              Call to ask any question: +123-456-7890
-            </p>
+          </p>
+          <p class="call-to-action">
+            <span class="icon-container">
+              <i class="fa fa-phone"></i>
+            </span>
+            Call to ask any question: +123-456-7890
+          </p>
+          <div class="statistics">
+            <div class="stat-box"><i class="fas fa-smile"></i><div><h3>25k+</h3><p>Happy Clients</p></div></div>
+            <div class="stat-box"><i class="fas fa-briefcase"></i><div><h3>796+</h3><p>Projects Completed</p></div></div>
+            <div class="stat-box"><i class="fas fa-handshake"></i><div><h3>85+</h3><p>Business Partners</p></div></div>
+            <div class="stat-box"><i class="fas fa-trophy"></i><div><h3>75+</h3><p>Awards Winning</p></div></div>
           </div>
         </div>
+      </div>
 
-        <!-- Statistics Section -->
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            gap: 30px;
-            background: #005aff;
-            padding: 20px;
-            width: 800px;
-            border-radius: 10px;
-          "
-        >
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-smile" style="font-size: 24px;"></i>
-          <div>
-            <h3 style="font-size: 36px; margin: 0;">25k+</h3>
-            <p style="margin: 0;">Happy Clients</p>
+      <div id="section4" class="col-12 w-100">4</div>
+      <div id="section5" class="col-12 w-100">5</div>
+
+      <div id="section6" class="col-12 w-100">
+        <h2 class="section-heading">Check Out Our Work Process</h2>
+        <p class="section-subheading">Many of the world's top brands have chosen Integrio to help them design and deliver innovative products.</p>
+        <div class="work-container">
+          <div class="work-box"><button class="toggle-btn">+</button></div>
+          <div class="work-box active">
+            <div class="content">
+              <h3>Mobile Coin View App</h3>
+              <p>We carry more than just good coding skills. Our experience makes us stand out from other development.</p>
+              <hr>
+              <p><i>Code carry more than just good skills. Our experience</i></p>
+            </div>
+            <button class="toggle-btn">-</button>
+          </div>
+          <div class="work-box"><button class="toggle-btn">+</button></div>
+          <div class="work-box"><button class="toggle-btn">+</button></div>
+        </div>
+        <div class="navigation">
+          <button class="nav-btn"><i class="fa fa-arrow-left"></i></button>
+          <button class="nav-btn"><i class="fa fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      
+      <div id="section7" class="col-12 w-100">7</div>
+      <div id="section8" class="col-12 w-100">8</div>
+      <!-- Section 9 Content -->
+<div id="section9" class="col-12 w-100">
+  <div class="services-container">
+    <h2 class="services-heading">We Offer a Wide Variety</h2>
+    <h3 class="services-subheading">of IT Services</h3>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <h4>3 Ways of Lying to Yourself About Your Relationship.</h4>
+        <div class="service-meta">Office, Meeting. 5 min</div>
+        <p class="service-description">We carry more than just good coding skills. our experience makes us stand out from other development.</p>
+        <div class="service-footer">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <p>Posted by Admin</p>
+              <span>March 5, 2020</span>
+            </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-briefcase" style="font-size: 24px;"></i>
-          <div>
-            <h3 style="font-size: 36px; margin: 0;">796+</h3>
-            <p style="margin: 0;">Projects Completed</p>
+      </div>
+
+      <div class="service-card active">
+        <h4>3 Ways of Lying to Yourself About Your Relationship.</h4>
+        <div class="service-meta">Office, Meeting. 5 min</div>
+        <p class="service-description">We carry more than just good coding skills. our experience makes us stand out from other development.</p>
+        <div class="service-footer">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <p>Posted by Admin</p>
+              <span>March 5, 2020</span>
+            </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-handshake" style="font-size: 24px;"></i>
-          <div>
-            <h3 style="font-size: 36px; margin: 0;">85+</h3>
-            <p style="margin: 0;">Business Partners</p>
-          </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-trophy" style="font-size: 24px;"></i>
-          <div>
-            <h3 style="font-size: 36px; margin: 0;">75+</h3>
-            <p style="margin: 0;">Awards Winning</p>
+      </div>
+
+      <div class="service-card">
+        <h4>3 Ways of Lying to Yourself About Your Relationship.</h4>
+        <div class="service-meta">Office, Meeting. 5 min</div>
+        <p class="service-description">We carry more than just good coding skills. our experience makes us stand out from other development.</p>
+        <div class="service-footer">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-info">
+              <p>Posted by Admin</p>
+              <span>March 5, 2020</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
   </body>
