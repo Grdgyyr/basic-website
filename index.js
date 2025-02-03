@@ -168,3 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
+
+//section 8
+/script.js
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Form submitted successfully!');
+});
