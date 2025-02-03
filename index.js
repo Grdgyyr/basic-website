@@ -72,6 +72,24 @@
   window.addEventListener('hashchange', setActiveItem)
 })()
 
+
+
+//hover button section 6
+        document.querySelectorAll(".toggle-btn").forEach(btn => {
+            btn.addEventListener("click", function() {
+                let parentBox = this.parentElement;
+                
+                // Remove "active" class from all boxes
+                document.querySelectorAll(".work-box").forEach(box => box.classList.remove("active"));
+
+                // Toggle active state for the clicked box
+                if (!parentBox.classList.contains("active")) {
+                    parentBox.classList.add("active");
+                }
+            });
+        });
+
+
 //header
 document.addEventListener("DOMContentLoaded", function () {
   const toggler = document.querySelector(".custom-toggler");
