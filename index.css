@@ -1483,7 +1483,6 @@ select {
 
 }
 
-
 @media (max-width: 768px) {
   #section5 h1 {
     font-size: 28px;
@@ -1492,6 +1491,8 @@ select {
   #section5 .button-small {
     height: 80px;
     font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   #section5 .progress-bar {
@@ -1500,6 +1501,18 @@ select {
 
   #section5 .progress {
     height: 15px;
+  }
+
+  #section5 .image img {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  #section5 .row.mb-4 {
+    justify-content: center;
+    padding-right: 0; 
   }
 }
 
