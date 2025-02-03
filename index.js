@@ -26,7 +26,7 @@
     })
 
   // Disable empty links and submit buttons
-  document.querySelectorAll('[href="#"], [type="submit"]')
+  document.querySelectorAll('[href="#"]')
     .forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault()
@@ -188,7 +188,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //section 8
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Form submitted successfully!');
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Form submitted successfully!');
+  });
 });
