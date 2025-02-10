@@ -1381,29 +1381,32 @@ select {
   color: #ccc;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  /* Section 3 res*/
+/* Section3 tablets res*/
+@media (max-width: 1500px) {
   #section3 {
+    display: flex;
     flex-direction: column;
-    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
   }
 
   .main-circle {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
 
   .main-circle strong {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .main-circle p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .main-circle span {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .small-circle {
@@ -1412,47 +1415,50 @@ select {
   }
 
   .small-circle.left {
-    bottom: -7px;
-    left: -30px;
-    width: 80px;
-    height: 80px;
+    bottom: -10px;
+    left: -20px;
+    width: 90px;
+    height: 90px;
   }
 
   .small-circle.right {
-    bottom: 15px;
-    right: -30px;
-    width: 80px;
-    height: 80px;
+    bottom: 20px;
+    right: -20px;
+    width: 90px;
+    height: 90px;
   }
 
   .right-content {
-    padding: 0 20px;
-    font-size: 24px;
+    padding: 20px;
+    font-size: 22px;
   }
 
   .right-content h2 {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .right-content p {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.6;
   }
 
   .statistics {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
   }
 
   .stat-box h3 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .stat-box p {
     font-size: 14px;
   }
+}
 
-  /* Section 6 res*/
+  /*Section6res*/
   #section6 {
     padding-top: 10%;
   }
@@ -1479,7 +1485,9 @@ select {
   }
 
   .navigation {
-    flex-direction: column;
+   display: flex;
+   justify-content: center;
+    gap:10px;
   }
 
   .nav-btn {
@@ -1516,7 +1524,7 @@ select {
   .service-description {
     font-size: 14px;
   }
-}
+
 
 /* Smaller Mobile Devices (max-width: 412px) */
 @media (max-width: 412px) {
