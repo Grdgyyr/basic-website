@@ -127,18 +127,18 @@ body {
 /*section1*/
 #section1 {
   font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   display: flex;
   align-items: center;
   justify-content: center;
   background: #0D1B2A;
-  background: #0D1B2A;
   color: white;
-  padding: 50px 0;
+  padding: 70px 0 50px;
   position: relative;
 }
-.follow-us-text {
+
+.follow-us {
+  flex: 1;
   position: absolute;
   left: 20px;
   top: 50%;
@@ -150,63 +150,200 @@ body {
   color: white;
 }
 
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.text-content {
+  flex: 2;
+  max-width: 500px;
+}
+
+.text-content h5 {
+  font-size: 20px;
+}
+
+.text-content h1 {
+  font-size: 48px;
+}
+
+.text-content p {
+  font-size: 18px;
+}
+
+.text-content button {
+  margin-top: 20px;
+}
+
+.image-content {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
 .big-circle {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  object-fit:contain;
-}
-
-.container h5 {
-  font-size: 20px;
-}
-
-.container h1 {
-  font-size: 48px; 
-}
-
-.container p {
-  font-size: 18px; 
+  object-fit: contain;
 }
 
 .navigation-buttons {
-  position: absolute;
-  right: -200px; 
-  top: 50%;
-  display: flex;
-  flex-direction: row;
+  flex: 1;
   gap: 10px;
-  transform: translateY(-50%) rotate(-90deg);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .next-btn, .prev-btn {
   width: 80px;
 }
+@media (max-height: 800px) {
+  #section1 {
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1113px) {
+  .big-circle {
+    width: 400px;
+    height: 400px;
+  }
+
+  .navigation-buttons {
+    right: 10px;
+  }
+
+  .follow-us {
+    display: none;
+  }
+
+  .text-content h5 {
+    font-size: 18px;
+  }
+
+  .text-content h1 {
+    font-size: 42px;
+  }
+
+  .text-content p {
+    font-size: 17px;
+  }
+}
+@media (max-width: 1255px) and (min-width: 1114px) {
+  .big-circle {
+    width: 400px;
+    height: 400px;
+  }
+
+  .navigation-buttons {
+    right: 10px;
+  }
+
+  .follow-us {
+    display: none;
+  }
+
+  .text-content h5 {
+    font-size: 18px;
+  }
+
+  .text-content h1 {
+    font-size: 42px;
+  }
+
+  .text-content p {
+    font-size: 17px;
+  }
+}
 
 @media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
   .big-circle {
     width: 300px;
     height: 300px;
   }
 
   .navigation-buttons {
-    right: -60px;
+    flex-direction: row;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
   }
 
-  .follow-us-text {
-    display: none;
-  }
-
-  .container h5 {
-    font-size: 18px;
-  }
-
-  .container h1 {
+  .text-content h1 {
     font-size: 36px;
   }
 
-  .container p {
+  .text-content p {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .big-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .navigation-buttons {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .next-btn, .prev-btn {
+    width: 60px;
+  }
+
+  .text-content h1 {
+    font-size: 32px;
+  }
+
+  .text-content p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1113px) and (min-width: 769px) {
+  .text-content {
+    order: 1;
+    max-width: 100%;
+  }
+
+  .image-content {
+    order: 2; 
+  }
+
+  .big-circle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .text-content button {
+    order: 3; 
+    margin-top: 20px;
+  }
+
+  .navigation-buttons {
+    order: 4;
+    flex-direction: row;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: translateY(-50%) rotate(-90deg);
+    justify-content: center;
+    margin-top: 20px;
   }
 }
 
