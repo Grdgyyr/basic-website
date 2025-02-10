@@ -477,29 +477,28 @@
     <div id="section8" class="col-12 w-100">
       <div class="container">
         <div class="contact-form">
-            <h2 class="text-center title">You Can Help You?</h2>
-            <p class="text-center subtitle">Where you will find the same qualit of service and dedication.</p>
+          <h2 class="text-center title">You Can Help You?</h2>
+          <p class="text-center subtitle">Where you will find the same quality of service and dedication.</p>
+          
+          <form id="contactForm">
+            <select class="form-select" required>
+              <option value="" selected disabled>Select Services</option>
+              <option value="service1">Service 1</option>
+              <option value="service2">Service 2</option>
+              <option value="service3">Service 3</option>
+            </select>
+    
+            <input type="text" class="form-control" placeholder="Your Name*" required>
+            <input type="text" class="form-control" placeholder="Your Company*" required>
             
-            <form id="contactForm">
-                <select class="form-select mb-3" required>
-                    <option value="" selected disabled>Select Services</option>
-                    <option value="service1">Service 1</option>
-                    <option value="service2">Service 2</option>
-                    <option value="service3">Service 3</option>
-                </select>
-
-                <input type="text" class="form-control" placeholder="Your Name*" required>
-                <input type="text" class="form-control" placeholder="Your Company*" required>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <input type="tel" class="form-control" placeholder="Phone*" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <input type="email" class="form-control" placeholder="E-mail*" required>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-submit">SEND REQUEST</button>
-            </form>
+            <!-- Remove the row structure for mobile uniformity -->
+            <div class="contact-inputs-wrapper">
+              <input type="tel" class="form-control contact-input" placeholder="Phone*" required>
+              <input type="email" class="form-control contact-input" placeholder="E-mail*" required>
+            </div>
+            
+            <button type="submit" class="btn btn-submit">SEND REQUEST</button>
+          </form>
         </div>
       </div>
     </div>
