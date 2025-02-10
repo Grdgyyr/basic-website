@@ -42,20 +42,17 @@
     }
   </style>
 
-  <!-- Custom styles for this template -->
   <link href="index.css" rel="stylesheet" />
 </head>
 
 <body class="bg-body-tertiary">
   <header class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
-      <!-- Logo -->
       <a class="navbar-brand" href="#">
         <strong style="font-family: 'Courier New', Courier">Iter</strong>
         <small class="d-block text-muted">IT Solutions</small>
       </a>
 
-      <!-- Navigation Links and CTA Button Container -->
       <div class="nav-cta-container d-none d-lg-flex align-items-center">
         <nav>
           <ul class="navbar-nav d-flex flex-row mb-0">
@@ -89,18 +86,15 @@
           </ul>
         </nav>
 
-        <!-- Call-to-Action Button -->
         <a href="#" class="btn btn-primary ms-4">
           <span>→ |</span> Get To Start
         </a>
       </div>
 
-      <!-- Burger Menu (Visible on Mobile) -->
       <button class="navbar-toggler custom-toggler d-lg-none" type="button">
         <span class="burger-icon"></span>
       </button>
 
-      <!-- Dropdown Navigation Links (Hidden by Default) -->
       <div class="dropdown-menu custom-dropdown">
         <a class="dropdown-item" href="#section1">Slider</a>
         <a class="dropdown-item" href="#section2">Features</a>
@@ -122,39 +116,33 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <div class="d-flex flex-column">
-    <div id="section1" class="container-fluid d-flex align-items-center justify-content-center position-relative">
-      <!-- Follow Us Text -->
-      <div class="follow-us-text position-absolute">
+    <div id="section1" class="col-12 w-100">
+      <div class="follow-us">
         Follow Us – Fb. / Tw. / Inst.
       </div>
-
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Left Content -->
-          <div class="col-md-6 text-white">
-            <h5>We Are Creative</h5>
-            <h1 class="fw-bold">
-              Best IT Solution <br />
-              Company
-            </h1>
-            <p>
-              Get the most of reduction in your team's operating <br />
-              creates amazing UI/UX experiences.
-            </p>
-            <button class="btn btn-primary mt-3">→ | Read More</button>
-          </div>
-          <!-- Right Image -->
-          <div class="col-md-6 d-flex justify-content-center position-relative">
-            <img src="/assets/images/imageplaceholder.png" alt="IT Solutions" class="img-fluid big-circle" />
-            <!-- Buttons Positioned on Right Side -->
-            <div class="navigation-buttons">
-              <button class="btn btn-dark prev-btn">Prev</button>
-              <button class="btn btn-primary next-btn">Next</button>
-            </div>
-          </div>
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h5>We Are Creative</h5>
+          <h1 class="fw-bold">
+            Best IT Solution <br />
+            Company
+          </h1>
+          <p>
+            Get the most of reduction in your team's operating <br />
+            creates amazing UI/UX experiences.
+          </p>
+          <button class="btn btn-primary mt-3">→ | Read More</button>
+        </div>
+        <div class="image-content">
+          <img src="/assets/images/imageplaceholder.png" alt="IT Solutions" class="img-fluid big-circle" />
+        </div>
+        <div class="navigation-buttons">
+          <button class="btn btn-dark prev-btn">Prev</button>
+          <button class="btn btn-primary next-btn">Next</button>
         </div>
       </div>
     </div>
+    
 
     <div id="section2" class="col-12 w-100">
       <div class="text-center">
@@ -477,29 +465,28 @@
     <div id="section8" class="col-12 w-100">
       <div class="container">
         <div class="contact-form">
-            <h2 class="text-center title">You Can Help You?</h2>
-            <p class="text-center subtitle">Where you will find the same qualit of service and dedication.</p>
+          <h2 class="text-center title">You Can Help You?</h2>
+          <p class="text-center subtitle">Where you will find the same quality of service and dedication.</p>
+          
+          <form id="contactForm">
+            <select class="form-select" required>
+              <option value="" selected disabled>Select Services</option>
+              <option value="service1">Service 1</option>
+              <option value="service2">Service 2</option>
+              <option value="service3">Service 3</option>
+            </select>
+    
+            <input type="text" class="form-control" placeholder="Your Name*" required>
+            <input type="text" class="form-control" placeholder="Your Company*" required>
             
-            <form id="contactForm">
-                <select class="form-select mb-3" required>
-                    <option value="" selected disabled>Select Services</option>
-                    <option value="service1">Service 1</option>
-                    <option value="service2">Service 2</option>
-                    <option value="service3">Service 3</option>
-                </select>
-
-                <input type="text" class="form-control" placeholder="Your Name*" required>
-                <input type="text" class="form-control" placeholder="Your Company*" required>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <input type="tel" class="form-control" placeholder="Phone*" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <input type="email" class="form-control" placeholder="E-mail*" required>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-submit">SEND REQUEST</button>
-            </form>
+            <!-- Remove the row structure for mobile uniformity -->
+            <div class="contact-inputs-wrapper">
+              <input type="tel" class="form-control contact-input" placeholder="Phone*" required>
+              <input type="email" class="form-control contact-input" placeholder="E-mail*" required>
+            </div>
+            
+            <button type="submit" class="btn btn-submit">SEND REQUEST</button>
+          </form>
         </div>
       </div>
     </div>
