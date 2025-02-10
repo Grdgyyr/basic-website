@@ -196,7 +196,7 @@ body {
   position: absolute;
   right: 20px;
   top: 50%;
-  transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(-90deg);
 }
 
 .next-btn, .prev-btn {
