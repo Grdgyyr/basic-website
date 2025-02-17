@@ -2,158 +2,136 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import TerminalIcon from '@mui/icons-material/Terminal';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import MenuIcon from '@mui/icons-material/Menu';
+import { styled } from '@mui/system';
 
 const pages = ['Slider', 'Features', 'About', 'Fun', 'Service', 'History', 'Portfolio', 'Contact', 'Brand'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const CustomAppBar = styled(AppBar)({
+  backgroundColor: '#16273a',
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+  padding: '15px 20px',
+});
+
+const CustomToolbar = styled(Toolbar)({
+  display: 'flex',
+  justifyContent: 'space-between',
+});
+
+const NavBrand = styled(Typography)({
+  fontSize: '30px',
+  color: 'white',
+  fontWeight: 'normal',
+  textDecoration: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  '& small': {
+    fontSize: '15px',
+    color: 'text.secondary',
+  },
+});
+
+const NavLink = styled(Button)({
+  color: 'white',
+  fontWeight: 'bold',
+  margin: '0 12px',
+  '&:hover': {
+    color: '#4a90e2',
+  },
+});
+
+const CustomMenu = styled(Menu)({
+  '& .MuiPaper-root': {
+    backgroundColor: 'white',
+    borderRadius: '5px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    minWidth: '180px',
+    padding: '10px 0',
+  },
+  '& .MuiMenuItem-root': {
+    color: '#16273a',
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#4a90e2',
+      color: 'white',
+    },
+  },
+});
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <TerminalIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            IT
-          </Typography>
+    <CustomAppBar position="static">
+      <CustomToolbar>
+        <NavBrand variant="h6" noWrap component="a" href="#" className='navbarbrand'>
+          Iter
+          <small>IT Solutions</small>
+        </NavBrand>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <TerminalIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+          {pages.map((page) => (
+            <NavLink key={page} onClick={handleCloseNavMenu}>
+              {page}
+            </NavLink>
+          ))}
+          <Button variant="contained" color="primary" sx={{ marginLeft: '16px' }}>
+            → | Get To Start
+          </Button>
+        </Box>
+
+        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
           >
-            IT
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <MenuIcon />
+          </IconButton>
+          <CustomMenu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+          >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              <MenuItem key={page} onClick={handleCloseNavMenu}>
                 {page}
-              </Button>
+              </MenuItem>
             ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+          </CustomMenu>
+        </Box>
+      </CustomToolbar>
+    </CustomAppBar>
   );
 }
+
 export default ResponsiveAppBar;
