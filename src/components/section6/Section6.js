@@ -83,7 +83,6 @@ const Section6 = () => {
         >
           {workBoxes.map((box) => (
             <Box
-              key={box.id}
               sx={{
                 flex: 1,
                 aspectRatio: "1/1",
@@ -94,20 +93,19 @@ const Section6 = () => {
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 padding: { xs: 3, sm: 4 },
-                minHeight: { xs: "300px", sm: "300px", md: "300px" },
+                minHeight: { xs: "300px", sm: "350px", md: "380px" }, 
                 color: activeBox === box.id ? "white" : "inherit",
-                overflow: "hidden",
+                overflowY: "auto", 
               }}
             >
               {activeBox === box.id && (
                 <Box
                   sx={{
                     height: "100%",
-                    position: "relative",
                     display: "flex",
                     flexDirection: "column",
-
-                    pb: "80px",
+                    flexGrow: 1, 
+                    justifyContent: "space-between",
                   }}
                 >
                   <Typography
@@ -219,7 +217,6 @@ const Section6 = () => {
               "&:hover": {
                 backgroundColor: "#0052CC",
               },
-              
             }}
           >
             <ArrowForwardIcon sx={{ color: "white", fontSize: "1.5rem" }} />
