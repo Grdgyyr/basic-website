@@ -1,7 +1,18 @@
 import React from "react";
 import { Box, Typography, Container, Grid, Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSubscribe = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Prevent unnecessary reloads
+    const confirmNavigation = window.confirm("Proceed to HR page?");
+    if (confirmNavigation) {
+      navigate("/hr/hr"); // Navigate to HR page
+    }
+  };
+
   return (
     <Box
       component="footer"
@@ -20,10 +31,10 @@ const Footer = () => {
             <Typography variant="h4" sx={{ fontWeight: 300, mb: 2 }}>
               Iter
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               Interested in working with us?
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               demo@gmail.com
             </Typography>
           </Grid>
@@ -33,19 +44,19 @@ const Footer = () => {
             <Typography variant="h6" sx={{ fontWeight: 400, mb: 2 }}>
               Address
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               Graaf Floristraat 22A,
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               3021 CH Rotterdam,
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               Netherlands
             </Typography>
             <Typography variant="body2" sx={{ mt: 1 }}>
               Contact Us
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               P: +99.230 705.54
             </Typography>
           </Grid>
@@ -81,7 +92,7 @@ const Footer = () => {
             <Typography variant="h6" sx={{ fontWeight: 400, mb: 2 }}>
               Subscribe
             </Typography>
-            <Typography variant="body2" color="white">
+            <Typography variant="body2" color="text.secondary">
               Sign up for our latest news & articles. We won't send spam emails.
             </Typography>
             <Box sx={{ display: "flex", gap: 1, mt: 2 }}>
@@ -101,6 +112,7 @@ const Footer = () => {
               />
               <Button
                 variant="contained"
+                onClick={handleSubscribe} // Routing added
                 sx={{
                   backgroundColor: "#2563eb",
                   padding: "8px 16px",
