@@ -65,7 +65,7 @@ const HR: React.FC = () => {
     <Box sx={{ display: "flex", minHeight: "100vh" }}>
       <SideNav />
       <Box sx={{ flexGrow: 1, p: 3 }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
+        <Typography variant="h4" sx={{ mb: 2, mt: 7 }}>
           HR Dashboard
         </Typography>
 
