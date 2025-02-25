@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import { styled, useTheme, Theme } from "@mui/material/styles";
 import { CSSObject } from "@mui/system";
 import {
-  Box,
-  CssBaseline,
-  AppBar as MuiAppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Drawer as MuiDrawer,
+  Box,CssBaseline,AppBar as MuiAppBar,Toolbar,Typography,IconButton,Drawer as MuiDrawer,
   List,
   ListItem,
   ListItemButton,
@@ -16,20 +10,12 @@ import {
   ListItemText,
   Divider
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {
-  LineStyle,
-  Timeline,
-  TrendingUp,
-  Person,
-  Paid,
-  Assessment,
-  Inventory,
-  Email,
-  Grading,
+  LineStyle,Timeline,TrendingUp,Person,Paid,Assessment,Inventory,Email,Grading,
   ChatBubble,
   ManageAccounts,
   Analytics,
@@ -41,6 +27,7 @@ interface MenuItem {
   text: string;
   icon: React.ReactNode;
   link: string;
+  isExternalLink?: boolean;
 }
 
 interface MenuSection {
@@ -53,7 +40,7 @@ const menuItems: MenuSection[] = [
   {
     title: "Dashboard",
     items: [
-      { text: "Home", icon: <LineStyle />, link: "/" },
+      { text: "Home", icon: <LineStyle />, link: "/hr"},
       { text: "Analytics", icon: <Timeline />, link: "/analytics" },
       { text: "Sales", icon: <TrendingUp />, link: "/sales" }
     ]
@@ -164,9 +151,20 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 const SideNav: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
+
+  const handleNavigation = (item: MenuItem) => {
+    if (item.isExternalLink) {
+      // For external links, use window.location
+      window.location.href = item.link;
+    } else {
+      // For internal links, use React Router
+      navigate(item.link);
+    }
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -209,7 +207,10 @@ const SideNav: React.FC = () => {
               )}
               {section.items.map((item, i) => (
                 <ListItem key={i} disablePadding sx={{ display: "block" }}>
-                  <ListItemButton component={Link} to={item.link} sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}>
+                  <ListItemButton 
+                    onClick={() => handleNavigation(item)}
+                    sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}
+                  >
                     <ListItemIcon sx={{ minWidth: 0, justifyContent: "center", color: "dodgerblue", ...(open && { mr: 3 }) }}>
                       {item.icon}
                     </ListItemIcon>
@@ -221,8 +222,6 @@ const SideNav: React.FC = () => {
           ))}
         </List>
       </Drawer>
-
-      
     </Box>
   );
 };

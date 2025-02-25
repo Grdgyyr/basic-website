@@ -11,7 +11,8 @@ import Section7 from "../components/section7/Section7";
 import Section8 from "../components/section8/Section8";
 import Section9 from "../components/section9/Section9";
 import Footer from "../components/footer/Footer";
-import HR from "../components/hr/hr"; // Import HR Page
+import HR from "../components/hr/hr"; 
+import UserList from "../components/hr/Userlist"; 
 
 const Routing: React.FC = () => {
   return (
@@ -35,8 +36,11 @@ const Routing: React.FC = () => {
           </>
         }
       />
-      {/* HR Page Route */}
-      <Route path="/hr/hr" element={<HR />} />
+      {/* HR Page Route - blank page with just the sidebar */}
+      <Route path="/hr" element={<HR />} />
+      
+      {/* UserList Page - where HR Dashboard and Add Person button will appear */}
+      <Route path="/userlist" element={<UserList />} />
     </Routes>
   );
 };
