@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     event.preventDefault(); // Prevent unnecessary reloads
     const confirmNavigation = window.confirm("Proceed to HR page?");
     if (confirmNavigation) {
-      navigate("/hr/hr"); // Navigate to HR page
+      navigate("/hr"); // Navigate to HR page
     }
   };
 
