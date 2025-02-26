@@ -83,7 +83,7 @@ const UserList: React.FC = () => {
               width: 450,
               maxHeight: "80vh",
               overflowY: "auto",
-              bgcolor: "background.paper",
+              bgcolor: "background.default",
               boxShadow: 24,
               p: 4,
               borderRadius: 2,

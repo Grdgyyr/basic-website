@@ -139,14 +139,21 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
     ...(open
       ? {
           ...openedMixin(theme),
-          "& .MuiDrawer-paper": openedMixin(theme)
+          "& .MuiDrawer-paper": {
+            ...openedMixin(theme),
+            backgroundColor: "#282828"
+          }
         }
       : {
           ...closedMixin(theme),
-          "& .MuiDrawer-paper": closedMixin(theme)
+          "& .MuiDrawer-paper": {
+            ...closedMixin(theme),
+            backgroundColor: "#282828"
+          }
         })
   })
 );
+
 
 const SideNav: React.FC = () => {
   const theme = useTheme();
@@ -211,7 +218,7 @@ const SideNav: React.FC = () => {
                     onClick={() => handleNavigation(item)}
                     sx={{ minHeight: 48, justifyContent: open ? "initial" : "center", px: 2.5 }}
                   >
-                    <ListItemIcon sx={{ minWidth: 0, justifyContent: "center", color: "dodgerblue", ...(open && { mr: 3 }) }}>
+                    <ListItemIcon sx={{ minWidth: 0, justifyContent: "center", color:  (theme) => theme.palette.primary.main, ...(open && { mr: 3 }) }}>
                       {item.icon}
                     </ListItemIcon>
                     <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
