@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button, Modal, TextField, MenuItem, Paper } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Button,
+  Modal,
+  TextField,
+  MenuItem,
+  Paper,
+  FormControl,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormLabel,
+  Select,
+} from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -118,7 +132,9 @@ const UserList: React.FC = () => {
 
     const newUser = {
       id: newId,
-      picture: formData.picture || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541', // Default image if none uploaded
+      picture:
+        formData.picture ||
+        'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541', // Default image if none uploaded
       name: formData.personal.name,
       email: formData.personal.email,
       phone: formData.personal.phone,
@@ -199,7 +215,7 @@ const UserList: React.FC = () => {
       headerName: 'Action',
       width: 220,
       renderCell: (params: any) => (
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginTop:1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginTop: 1 }}>
           <Button variant="contained" size="small" color="success" onClick={() => handleEdit(params.row.id)}>
             Edit
           </Button>
@@ -266,36 +282,64 @@ const UserList: React.FC = () => {
                   label="Full Name"
                   sx={{ mb: 2 }}
                   value={formData.personal.name}
-                  onChange={(e) => handleChange('personal', 'name', e.target.value)}
+                  onChange={(e) => {
+                    let value = e.target.value;
+                    if (value.length > 0) {
+                      value = value.charAt(0).toUpperCase() + value.slice(1);
+                    }
+                    handleChange('personal', 'name', value);
+                  }}
+                  helperText="First letter must be uppercase"
                 />
                 <TextField
                   fullWidth
                   label="Email"
+                  type="email"
                   sx={{ mb: 2 }}
                   value={formData.personal.email}
                   onChange={(e) => handleChange('personal', 'email', e.target.value)}
+                  onBlur={(e) => {
+                    const value = e.target.value.trim();
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value !== '') {
+                      alert('Invalid email format');
+                    }
+                  }}
+                  helperText="Must be a valid email format"
                 />
                 <TextField
                   fullWidth
                   label="Phone Number"
+                  type="tel"
                   sx={{ mb: 2 }}
                   value={formData.personal.phone}
-                  onChange={(e) => handleChange('personal', 'phone', e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '');
+                    handleChange('personal', 'phone', value);
+                  }}
+                  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                  helperText="Only numbers allowed"
                 />
                 <TextField
                   fullWidth
-                  label="Date of Birth (YYYY-MM-DD)"
+                  label="Date of Birth"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={formData.personal.date_of_birth}
                   onChange={(e) => handleChange('personal', 'date_of_birth', e.target.value)}
+                  InputLabelProps={{ shrink: true }}
                 />
-                <TextField
-                  fullWidth
-                  label="Gender"
-                  sx={{ mb: 2 }}
-                  value={formData.personal.gender}
-                  onChange={(e) => handleChange('personal', 'gender', e.target.value)}
-                />
+                <FormControl component="fieldset" sx={{ mb: 2 }}>
+                  <FormLabel component="legend">Gender</FormLabel>
+                  <RadioGroup
+                    row
+                    value={formData.personal.gender}
+                    onChange={(e) => handleChange('personal', 'gender', e.target.value)}
+                  >
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <FormControlLabel value="other" control={<Radio />} label="Other" />
+                  </RadioGroup>
+                </FormControl>
                 <TextField
                   fullWidth
                   label="Nationality"
@@ -303,13 +347,17 @@ const UserList: React.FC = () => {
                   value={formData.personal.nationality}
                   onChange={(e) => handleChange('personal', 'nationality', e.target.value)}
                 />
-                <TextField
-                  fullWidth
-                  label="Marital Status"
-                  sx={{ mb: 2 }}
-                  value={formData.personal.marital_status}
-                  onChange={(e) => handleChange('personal', 'marital_status', e.target.value)}
-                />
+                <FormControl fullWidth sx={{ mb: 2 }}>
+                  <FormLabel>Marital Status</FormLabel>
+                  <Select
+                    value={formData.personal.marital_status}
+                    onChange={(e) => handleChange('personal', 'marital_status', e.target.value)}
+                  >
+                    <MenuItem value="single">Single</MenuItem>
+                    <MenuItem value="married">Married</MenuItem>
+                    <MenuItem value="widowed">Widowed</MenuItem>
+                  </Select>
+                </FormControl>
                 <TextField
                   fullWidth
                   label="LinkedIn"
@@ -353,17 +401,21 @@ const UserList: React.FC = () => {
                 />
                 <TextField
                   fullWidth
-                  label="Start Date (YYYY-MM-DD)"
+                  label="Start Date"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={formData.job.start_date}
                   onChange={(e) => handleChange('job', 'start_date', e.target.value)}
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   fullWidth
-                  label="End Date (YYYY-MM-DD or 'Present')"
+                  label="End Date"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={formData.job.end_date}
                   onChange={(e) => handleChange('job', 'end_date', e.target.value)}
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   fullWidth
@@ -588,7 +640,7 @@ const UserList: React.FC = () => {
             {selectedUser && (
               <>
                 {/* Personal Details */}
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 2 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 2,}}>
                   Personal Details
                 </Typography>
                 <TextField
@@ -596,36 +648,64 @@ const UserList: React.FC = () => {
                   label="Full Name"
                   sx={{ mb: 2 }}
                   value={selectedUser.name}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, name: e.target.value })}
+                  onChange={(e) => {
+                    let value = e.target.value;
+                    if (value.length > 0) {
+                      value = value.charAt(0).toUpperCase() + value.slice(1);
+                    }
+                    setSelectedUser({ ...selectedUser, name: value });
+                  }}
+                  helperText="First letter must be uppercase"
                 />
                 <TextField
                   fullWidth
                   label="Email"
+                  type="email"
                   sx={{ mb: 2 }}
                   value={selectedUser.email}
                   onChange={(e) => setSelectedUser({ ...selectedUser, email: e.target.value })}
+                  onBlur={(e) => {
+                    const value = e.target.value.trim();
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value !== '') {
+                      alert('Invalid email format');
+                    }
+                  }}
+                  helperText="Must be a valid email format"
                 />
                 <TextField
                   fullWidth
                   label="Phone Number"
+                  type="tel"
                   sx={{ mb: 2 }}
                   value={selectedUser.phone}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, phone: e.target.value })}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '');
+                    setSelectedUser({ ...selectedUser, phone: value });
+                  }}
+                  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                  helperText="Only numbers allowed"
                 />
                 <TextField
                   fullWidth
                   label="Date of Birth"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={selectedUser.date_of_birth}
                   onChange={(e) => setSelectedUser({ ...selectedUser, date_of_birth: e.target.value })}
+                  InputLabelProps={{ shrink: true }}
                 />
-                <TextField
-                  fullWidth
-                  label="Gender"
-                  sx={{ mb: 2 }}
-                  value={selectedUser.gender}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, gender: e.target.value })}
-                />
+                <FormControl component="fieldset" sx={{ mb: 2 }}>
+                  <FormLabel component="legend">Gender</FormLabel>
+                  <RadioGroup
+                    row
+                    value={selectedUser.gender}
+                    onChange={(e) => setSelectedUser({ ...selectedUser, gender: e.target.value })}
+                  >
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <FormControlLabel value="other" control={<Radio />} label="Other" />
+                  </RadioGroup>
+                </FormControl>
                 <TextField
                   fullWidth
                   label="Nationality"
@@ -633,13 +713,17 @@ const UserList: React.FC = () => {
                   value={selectedUser.nationality}
                   onChange={(e) => setSelectedUser({ ...selectedUser, nationality: e.target.value })}
                 />
-                <TextField
-                  fullWidth
-                  label="Marital Status"
-                  sx={{ mb: 2 }}
-                  value={selectedUser.marital_status}
-                  onChange={(e) => setSelectedUser({ ...selectedUser, marital_status: e.target.value })}
-                />
+                <FormControl fullWidth sx={{ mb: 2 }}>
+                  <FormLabel>Marital Status</FormLabel>
+                  <Select
+                    value={selectedUser.marital_status}
+                    onChange={(e) => setSelectedUser({ ...selectedUser, marital_status: e.target.value })}
+                  >
+                    <MenuItem value="single">Single</MenuItem>
+                    <MenuItem value="married">Married</MenuItem>
+                    <MenuItem value="widowed">Widowed</MenuItem>
+                  </Select>
+                </FormControl>
                 <TextField
                   fullWidth
                   label="LinkedIn"
@@ -683,16 +767,20 @@ const UserList: React.FC = () => {
                 <TextField
                   fullWidth
                   label="Start Date"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={selectedUser.start_date}
                   onChange={(e) => setSelectedUser({ ...selectedUser, start_date: e.target.value })}
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   fullWidth
                   label="End Date"
+                  type="date"
                   sx={{ mb: 2 }}
                   value={selectedUser.end_date}
                   onChange={(e) => setSelectedUser({ ...selectedUser, end_date: e.target.value })}
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   fullWidth
@@ -722,6 +810,7 @@ const UserList: React.FC = () => {
                 <TextField
                   fullWidth
                   label="Payment Rate"
+                  type="number"
                   sx={{ mb: 2 }}
                   value={selectedUser.rate}
                   onChange={(e) => setSelectedUser({ ...selectedUser, rate: e.target.value })}
